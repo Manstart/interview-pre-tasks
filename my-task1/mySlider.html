@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>图片轮播</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="slidercss.css" />
+    </head>
+    <body>
+    <h1>图片轮播</h1>
+    <div class="btns">
+       <button class="isSlider">自动轮转</button>
+       <button class="NOtSlider">禁止自动轮转</button>
+       <button class="switchLeft">轮播方向向左</button>
+       <button class="switchRight">轮播方向向右</button>    
+    </div>
+    
+    <div class="slider">  
+    <div class="pics">
+        <img class="curpic" src="d.jpg" height="333" width="500" />
+        <img src="e.jpg" height="333" width="500" />
+        <img src="f.jpg" height="333" width="500" />
+        <img src="g.jpg" height="333" width="500" />
+        <img src="h.jpg" height="333" width="500" />
+    <div class="num">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+    </div>
+    </div>
+    </div>
+    
+    <script type="text/javascript">
+            
+       var curindex = 0;
+       var Tag ;
+       var int;
+       $('.num span').eq(0).addClass('bg');
+       function showPicsAuto(){
+         if(Tag===true){
+            $('.pics img').parent().children('img').fadeOut(2000);
+            $('.num span').removeClass('bg');
+            $('.pics img').parent().children('img').eq(curindex).fadeIn(2000);
+            console.log(curindex);
+            $('.num span').eq(curindex).addClass('bg');
+                curindex--;
+                if(curindex<0){
+                curindex = 4;
+                }   
+         }else if(Tag===false){   
+            $('.pics img').parent().children('img').fadeOut(2000);
+            $('.num span').removeClass('bg');
+            $('.pics img').parent().children('img').eq(curindex).fadeIn(2000);
+            console.log(curindex);
+            $('.num span').eq(curindex).addClass('bg');
+                curindex++;             
+                if(curindex>4){
+                curindex = 0;
+                }  
+            }else{
+                curindex==0;
+            }        
+            //console.log(curindex);
+         }
+
+         $('.num span').click(function() {
+            curindex = $(this).index(); //从0开始
+            $(this).parent().parent().children('img').fadeOut(2000);
+            console.log(curindex);
+            $(this).parent().parent().children('img').eq(curindex).fadeIn(2000);
+         });
+         $('.switchLeft').click(function() {
+            Tag = true;//向左轮转     
+         });
+         $('.switchRight').click(function() {
+            Tag = false;          
+         });
+         $('.isSlider').click(function() {
+            Tag = false;//向右轮转
+            int = setInterval(showPicsAuto,3000); 
+         });
+         $('.NOtSlider').click(function() {
+            clearInterval(int);
+         });
+    </script>
+    </body>
+</html>
