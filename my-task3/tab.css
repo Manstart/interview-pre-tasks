@@ -1,0 +1,46 @@
+/* 
+* @Author: Zhangxuman
+* @Date:   2016-06-14 16:22:09
+* @Last Modified by:   Marte
+* @Last Modified time: 2016-06-14 21:40:17
+*/
+#tabs a{
+    text-decoration:none; 
+    color: white;   
+}
+#tabs ul li{
+    list-style-type:none;
+    padding:20px;
+    font-size: 24px;
+    width: 80px;
+    float: left;
+    text-align: center;
+    background-color: #544f6b; 
+    margin:1px;  
+}
+.contents{
+    clear: both;
+    
+    margin-left: 41px;
+    width: 363px;
+    height: auto;
+    position: relative;
+}
+.fontcss{
+    color: #777;
+    line-height: 150%;
+    margin-bottom: 20px;
+    padding:10px;
+    text-indent: 2em;
+    position:absolute;
+    border: 1px solid #544f6b;
+    display: none;
+    
+}
+.active{
+    display:block;
+}
+.tab_active{
+    background-color: #8478b3 !important;
+}
+
